@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+{% block content %}
+
+<h1> Welcome home, from Homepage </h1>
+{% if user.is_authenticated %}
+<a href="{% url 'logout_url' %}">Logout</a>
+
+{% else %}
+<a href="{% url 'login_url' %}">Login</a>
+<a href="{% url 'register_url' %}">Register</a>
+{% endif %}
+
+{% endblock %}
+
+
+</body>
+</html>
