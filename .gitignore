@@ -271,4 +271,6 @@ env.bak/
 venv.bak/
 pip-selfcheck.json
 
+**/migrations/
+
 # End of https://www.gitignore.io/api/venv,python,django,pycharm+all

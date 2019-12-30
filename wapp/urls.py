@@ -24,4 +24,5 @@ urlpatterns = [
     path('login/', LoginView.as_view(redirect_authenticated_user=True), name="login_url"),
     path('register/', views.registerView, name="register_url"),
     path('logout/', LogoutView.as_view(), name='logout_url'),
+    path('delete/<city_name>/', views.delete_city, name='delete_url')
 ]
