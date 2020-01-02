@@ -5,60 +5,47 @@
 <body>
 {% block content %}
 
-<h1> Welcome, {{user.username}} </h1>
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-offset-4 is-4">
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="field has-addons">
-                        <div class="control is-expanded">
-                            {{ form.name }}
-                        </div>
-                        <div class="control">
-                            <button type="submit" class="button is-info">
-                                Add City
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+<div class="container">
+    <div class=row>
+        <h3> Welcome, {{user.username}}. Add some new city. </h3>
     </div>
-</section>
-<div class="dashboard">
-    {% if message %}
-    <div class="{{ message_class }}">{{ message }}</div>
-    {% endif %}
-    {% for city_weather in weather_data %}
-    <div class="box">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image is-50x50">
-                    <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="Image">
-                </figure>
+    <div class=row>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="city-add" type="text" name="name" placeholder="City name">
+                <button class="submit-icon" type="submit"><i class="icon ion-md-add-circle-outline" size="large"></i>
+                </button>
             </div>
-            <div class="media-content">
-                <div class="content">
-                    <p>
-                        <span class="title">{{ city_weather.city }}</span>
-                        <br>
-                        <span class="subtitle">{{ city_weather.temperature }}° C</span>
-                        <br> {{ city_weather.description }}
-                    </p>
+        </form>
+    </div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        {% for city_weather in weather_data %}
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>{{ city_weather.city }}</h3><img
+                        src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" class="float-left">
+                </div>
+                <div class="col-lg-4">
+                    <a href="{% url 'delete_url' city_weather.city %}"><i class="icon ion-md-remove-circle-outline"
+                                                                          size="large"></i></a>
                 </div>
             </div>
-            <div class="media-right">
-                <a href="{% url 'delete_url' city_weather.city %}">
-                    <button class="delete"></button>
-                </a>
-            </div>
-        </article>
+
+            <p>{{ city_weather.temperature }}° C</p>
+            <p>{{ city_weather.description }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+           <div class="row">
+            <a class="logout-footer" href="{% url 'logout_url' %}">Logout</a>
+        </div>
+
 </div>
-<a href="{% url 'logout_url' %}">Logout</a>
 {% endblock %}
 
 </body>

@@ -1,4 +1,3 @@
-{% load static %}
 body, html {
     background: url('/static/img/background.jpg') no-repeat center center fixed;;
   -webkit-background-size: cover;
@@ -75,18 +74,9 @@ body, html {
   transform:translateY(1px);
 }
 
-.dashboard {
-  max-width:320px;
-  width:90%;
+.container {
   background-color:#1e2833;
-  padding:40px;
-  border-radius:4px;
-  transform:translate(-50%, -50%);
-  position:absolute;
-  top:50%;
-  left:50%;
   color:#fff;
-  box-shadow:3px 3px 4px rgba(0,0,0,0.2);
 }
 
 .error-msg {
@@ -101,3 +91,41 @@ body, html {
     margin-bottom:10px;
 }
 
+.col-lg-4 {
+    padding-top:20px;
+}
+
+.city-add {
+  background:none;
+  border:none;
+  border-bottom:1px solid #434a52;
+  border-radius:0;
+  box-shadow:none;
+  outline:none;
+  color:inherit;
+  margin-left:10px;
+}
+
+.submit-icon {
+    background:none;
+    font-size:24px;
+    border: none;
+    outline: none;
+    color:green;
+    cursor:pointer;
+}
+
+.logout-footer {
+    color:white;
+    float:right;
+    margin-bottom:10px;
+    margin-left:10px
+}
+.logout-footer:hover {
+    color:white;
+}
+
+.ion-md-remove-circle-outline {
+    color:red;
+
+}
