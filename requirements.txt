@@ -3,5 +3,6 @@ requests
 django>=2.2.5
 psycopg2-binary>=2.7,<3.0
 pytest-cov==2.8.1
+pytest-django==3.7.0
 codecov==2.0.15
 
