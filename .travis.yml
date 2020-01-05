@@ -1,3 +1,4 @@
+sudo: false
 language: python
 services: postgresql
 python:
@@ -9,4 +10,6 @@ before_script:
   - psql -c "CREATE USER kamil WITH PASSWORD 'password';" -U postgres
   - psql -c "ALTER USER kamil WITH CREATEDB;" -U postgres
   - psql -c "GRANT ALL PRIVILEGES ON DATABASE testdb TO kamil;" -U postgres
-script: python manage.py test
+script: pytest --cov
+after_success:
+  - codecov
