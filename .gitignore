@@ -262,7 +262,6 @@ modules.xml
 [Ll]ocal
 [Ss]cripts
 pyvenv.cfg
-.env
 .venv
 env/
 venv/
