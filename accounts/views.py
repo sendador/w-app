@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import City
 from .forms import CityForm
-from django.contrib import messages
 
 
 @login_required(login_url='/login/')
@@ -17,12 +16,14 @@ def indexView(request):
     if request.method == 'POST':
         form = CityForm(request.POST)
         if form.is_valid():
-            new_city = form.cleaned_data['name']
-            existing_city_count = City.objects.filter(name=new_city).count()
+            new_city = form.cleaned_data['name'].capitalize()
+            existing_city_count = City.objects.filter(name=new_city, user=request.user).count()
             if existing_city_count == 0:
                 response = requests.get(url.format(new_city)).json()
                 if response['cod'] == 200:
-                    form.save()
+                    obj = form.save()
+                    obj.user = request.user
+                    obj.save()
                 else:
                     error_message = 'City doesnt exist'
             else:
@@ -35,8 +36,7 @@ def indexView(request):
             message_class = 'successful-msg'
 
     form = CityForm()
-    cities = City.objects.all()
-
+    cities = City.objects.filter(user=request.user)
     weather_data = []
 
     for city in cities:
@@ -60,9 +60,8 @@ def indexView(request):
     return render(request, 'dashboard.html', context)
 
 
-def delete_city(request, city_name):
-    City.objects.get(name=city_name).delete()
-    messages.add_message(request, messages.INFO, 'City deleted')
+def delete_city(self, city_name):
+    City.objects.filter(name=city_name).delete()
     return redirect('home')
 
 
