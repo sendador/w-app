@@ -14,7 +14,7 @@
             {% csrf_token %}
             <div class="form-group">
                 <input class="city-add" type="text" name="name" placeholder="City name">
-                <button class="submit-icon" type="submit"><i class="icon ion-md-add-circle-outline" size="large"></i>
+                <button class="submit-icon" type="submit" name="submit-city"><i class="icon ion-md-add-circle-outline" size="large"></i>
                 </button>
             </div>
         </form>
@@ -34,7 +34,7 @@
                         src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" class="float-left">
                 </div>
                 <div class="col-lg-4">
-                    <a href="{% url 'delete_url' city_weather.city %}"><i class="icon ion-md-remove-circle-outline"
+                    <a href="{% url 'delete_url' city_weather.city %}"><i class="icon ion-md-remove-circle-outline" name="delete-city"
                                                                           size="large"></i></a>
                 </div>
             </div>

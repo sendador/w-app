@@ -4,6 +4,6 @@ python:
   - "3.8"
 install:
   - pip install -r requirements.txt
-script: pytest --cov
+script: pytest accounts --cov
 after_success:
   - codecov
