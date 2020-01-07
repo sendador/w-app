@@ -4,7 +4,7 @@
 # w-app
 Weather app using Django. You can follow the weather from as many cities as you like.
 Followed cities are assigned to the account.
-#Technologies
+# Technologies
 - Python
 - Django
 - Unit tests using pytest on models, urls, views
@@ -13,7 +13,7 @@ Followed cities are assigned to the account.
 - Codacy for automate code reviews and monitors code quality
 - Travis CI for continuous integration service used to build and test
 
-#Installation:
+# Installation:
 
 You can get repository from git by:
 
@@ -38,7 +38,7 @@ and install other dependency
 
 <pre>pip install -r requirements.txt</pre>
 
-#Usage
+# Usage
 
 First you have to migrate new database:
 
@@ -59,7 +59,7 @@ Your website will be on:
 
 and then create account and add some cities! Have fun!
 
-#To do list:
+# To do list:
 
 - auto-refresh data
 
