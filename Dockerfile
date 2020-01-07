@@ -4,7 +4,6 @@ RUN mkdir /wapp
 WORKDIR /wapp
 COPY requirements.txt /wapp/
 COPY . /wapp/
-ADD requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . .
 
