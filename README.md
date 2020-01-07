@@ -9,11 +9,21 @@ Followed cities are assigned to the account.
 - Django
 - Unit tests using pytest on models, urls, views
 - Coverage and codecov to improve test across the app
+- Selenium for functional tests
 - Django-environ for environmental variables
 - Codacy for automate code reviews and monitors code quality
 - Travis CI for continuous integration service used to build and test
+- Docker for easy build
 
-# Installation:
+# Docker build
+
+Just clone repo
+<pre>git clone https://github.com/sendador/w-app.git</pre>
+and then use docker-composer
+<pre>docker-compose up</pre>
+Your app will be on:
+<pre>localhost:8000</pre>
+# Manual Installation:
 
 You can get repository from git by:
 
