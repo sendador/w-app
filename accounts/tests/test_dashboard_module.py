@@ -57,6 +57,14 @@ class TestDashboard(TestCase):
         self.assertEqual(second_city.status_code, 200)
         self.assertEqual(before_add, after_add)
 
+    def test_add_blank_form(self):
+        before_add = City.objects.all().count()
+        response = self.client.post('/', {'name': ''}, format='text/html')
+        response = self.client.post('/', {'name': '   '}, format='text/html')
+        after_add = City.objects.all().count()
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(before_add, after_add)
+
 
 
 

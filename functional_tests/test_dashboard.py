@@ -53,6 +53,15 @@ class TestDashboardPage(StaticLiveServerTestCase):
         self.browser.find_element_by_name('submit-city').click()
         self.assertEqual(self.browser.find_element_by_class_name('error-msg').text, 'City doesnt exist')
 
+    def test_user_add_blank_form(self):
+        self.browser.get(self.live_server_url)
+        self.browser.find_element_by_name('username').send_keys('testuser')
+        self.browser.find_element_by_name('password').send_keys('testpassword')
+        self.browser.find_element_by_name('submit').click()
+        self.browser.find_element_by_name('name').send_keys('')
+        self.browser.find_element_by_name('submit-city').click()
+        self.assertEqual(self.browser.find_element_by_class_name('error-msg').text, 'Please write the city name')
+
     def test_user_logout(self):
         self.browser.get(self.live_server_url)
         login_url = self.browser.current_url
@@ -61,4 +70,3 @@ class TestDashboardPage(StaticLiveServerTestCase):
         self.browser.find_element_by_name('submit').click()
         self.browser.find_element_by_class_name('logout-footer').click()
         self.assertEqual(login_url, self.browser.current_url)
-

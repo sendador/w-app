@@ -4,4 +4,5 @@ django>=2.2.5
 pytest-cov==2.8.1
 pytest-django==3.7.0
 codecov==2.0.15
+selenium==3.141.0
 

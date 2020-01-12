@@ -28,6 +28,8 @@ def indexView(request):
                     error_message = 'City doesnt exist'
             else:
                 error_message = "This city is already added!"
+        else:
+            error_message = 'Please write the city name'
         if error_message:
             message = error_message
             message_class = 'error-msg'

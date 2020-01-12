@@ -69,7 +69,3 @@ Your website will be on:
 
 and then create account and add some cities! Have fun!
 
-# To do list:
-
-- auto-refresh data
-

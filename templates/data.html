@@ -1,0 +1,25 @@
+<div id="data">
+    <div class="row">
+        {% for city_weather in weather_data %}
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3 class="city-name">{{ city_weather.city }}</h3><img
+                        src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" class="float-left">
+                </div>
+                <div class="col-lg-4">
+                    <a href="{% url 'delete_url' city_weather.city %}"><i class="icon ion-md-remove-circle-outline"
+                                                                          name="delete-city"
+                                                                          size="large"></i></a>
+                </div>
+            </div>
+
+            <p>{{ city_weather.temperature }}° C</p>
+            <p>{{ city_weather.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <a class="logout-footer" href="{% url 'logout_url' %}">Logout</a>
+    </div>
+</div>
